@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.numericalButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RandomTurnActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NumericalActivity.class);
                 startActivity(intent);
             }
         });
