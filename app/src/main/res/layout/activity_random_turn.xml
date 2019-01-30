@@ -7,6 +7,14 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/Background_Concept_02"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -16,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:src="@drawable/oc_topleft_blank_32" />
+        android:src="@drawable/gameboard_topleft_blank" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -26,7 +34,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/oc_topline_blank_32" />
+        android:src="@drawable/gameboard_top_blank" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -37,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/oc_topright_blank_32" />
+        android:src="@drawable/gameboard_topright_blank" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -110,4 +118,5 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="25dp" />
+
 </android.support.constraint.ConstraintLayout>
