@@ -44,7 +44,37 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void checkForWin() {
+        int[][] gameBoard = getGameBoard();
+        checkHorizontal(gameBoard);
+        checkVertical(gameBoard);
+        checkDiagonal(gameBoard);
+    }
 
+    private void checkDiagonal(int[][] gameBoard) {
+        //check for diagonal winner
+    }
+
+    private void checkVertical(int[][] gameBoard) {
+        //check for vertical winner
+    }
+
+    private void checkHorizontal(int[][] gameBoard) {
+        //check for horizontal winner
+    }
+
+    private int[][] getGameBoard() {
+        int[][] gameBoard = new int[][]{
+                {Integer.valueOf(findViewById(R.id.imageView).getTag().toString()),
+                Integer.valueOf(findViewById(R.id.imageView2).getTag().toString()),
+                Integer.valueOf(findViewById(R.id.imageView3).getTag().toString())},
+                {Integer.valueOf(findViewById(R.id.imageView4).getTag().toString()),
+                Integer.valueOf(findViewById(R.id.imageView5).getTag().toString()),
+                Integer.valueOf(findViewById(R.id.imageView6).getTag().toString())},
+                {Integer.valueOf(findViewById(R.id.imageView7).getTag().toString()),
+                Integer.valueOf(findViewById(R.id.imageView8).getTag().toString()),
+                Integer.valueOf(findViewById(R.id.imageView9).getTag().toString())}
+        };
+        return gameBoard;
     }
 
     private void getMove(boolean turn) {
