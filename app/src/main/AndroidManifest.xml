@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RandomTurnActivity"/>
+        <activity android:name=".NumericalActivity"/>
     </application>
 
 </manifest>
