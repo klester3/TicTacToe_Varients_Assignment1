@@ -8,8 +8,6 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private boolean turn;
     private boolean clicked;
-    private int[] trueMoves = {1, 3, 5, 7, 9};
-    private int[] falseMoves = {2, 4, 6, 8};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,9 +99,9 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void getMove(boolean turn) {
         if (turn) {
-            //display move dialog with trueMoves
+            //display trueMoves dialog
         } else {
-            //display move dialog with falseMoves
+            //display falseMoves dialog
         }
     }
 }
