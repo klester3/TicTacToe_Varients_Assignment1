@@ -8,6 +8,8 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private boolean turn;
     private boolean clicked;
+    private int[] trueMoves = {1, 3, 5, 7, 9};
+    private int[] falseMoves = {2, 4, 6, 8};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,6 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         findViewById(R.id.imageView7).setOnClickListener(this);
         findViewById(R.id.imageView8).setOnClickListener(this);
         findViewById(R.id.imageView9).setOnClickListener(this);
-
-
     }
 
     @Override
@@ -45,21 +45,43 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void checkForWin() {
         int[][] gameBoard = getGameBoard();
-        checkHorizontal(gameBoard);
-        checkVertical(gameBoard);
-        checkDiagonal(gameBoard);
+        if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
+            //display winner dialog
+        }
     }
 
-    private void checkDiagonal(int[][] gameBoard) {
-        //check for diagonal winner
+    private boolean checkDiagonal(int[][] gameBoard) {
+        if (gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2] == 15) {
+            return true;
+        } else if (gameBoard[2][0] + gameBoard[1][1] + gameBoard[0][2] == 15) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private void checkVertical(int[][] gameBoard) {
-        //check for vertical winner
+    private boolean checkVertical(int[][] gameBoard) {
+        if (gameBoard[0][0] + gameBoard[1][0] + gameBoard[2][0] == 15) {
+            return true;
+        } else if (gameBoard[0][1] + gameBoard[1][1] + gameBoard[2][1] == 15) {
+            return true;
+        } else if (gameBoard[0][2] + gameBoard[1][2] + gameBoard[2][2] == 15) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private void checkHorizontal(int[][] gameBoard) {
-        //check for horizontal winner
+    private boolean checkHorizontal(int[][] gameBoard) {
+        if (gameBoard[0][0] + gameBoard[0][1] + gameBoard[0][2] == 15) {
+            return true;
+        } else if (gameBoard[1][0] + gameBoard[1][1] + gameBoard[1][2] == 15) {
+            return true;
+        } else if (gameBoard[2][0] + gameBoard[2][1] + gameBoard[2][2] == 15) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private int[][] getGameBoard() {
@@ -79,9 +101,9 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void getMove(boolean turn) {
         if (turn) {
-
+            //display move dialog with trueMoves
         } else {
-
+            //display move dialog with falseMoves
         }
     }
 }
