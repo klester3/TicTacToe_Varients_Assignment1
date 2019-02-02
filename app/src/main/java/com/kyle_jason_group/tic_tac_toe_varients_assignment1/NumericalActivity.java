@@ -1,7 +1,9 @@
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 
 public class NumericalActivity extends AppCompatActivity implements View.OnClickListener {
@@ -99,9 +101,21 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void getMove(boolean turn) {
         if (turn) {
-            //display trueMoves dialog
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.true_moves, null);
+            AlertDialog.Builder moveAlert = new AlertDialog.Builder(this);
+            moveAlert.setView(alertLayout);
+            moveAlert.setCancelable(true);
+            AlertDialog moveDialog = moveAlert.create();
+            moveDialog.show();
         } else {
-            //display falseMoves dialog
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.false_moves, null);
+            AlertDialog.Builder moveAlert = new AlertDialog.Builder(this);
+            moveAlert.setView(alertLayout);
+            moveAlert.setCancelable(true);
+            AlertDialog moveDialog = moveAlert.create();
+            moveDialog.show();
         }
     }
 }
