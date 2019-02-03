@@ -13,6 +13,15 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     private boolean turn;
     private boolean clicked;
     private int counter;
+    private boolean one;
+    private boolean two;
+    private boolean three;
+    private boolean four;
+    private boolean five;
+    private boolean six;
+    private boolean seven;
+    private boolean eight;
+    private boolean nine;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,15 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         turn = true;
         clicked = false;
         counter = 0;
+        one = false;
+        two = false;
+        three = false;
+        four = false;
+        five = false;
+        six = false;
+        seven = false;
+        eight = false;
+        nine = false;
 
         findViewById(R.id.imageView).setOnClickListener(this);
         findViewById(R.id.imageView2).setOnClickListener(this);
@@ -111,142 +129,187 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             AlertDialog.Builder moveAlert = new AlertDialog.Builder(this);
             moveAlert.setView(alertLayout);
             moveAlert.setCancelable(true);
-            AlertDialog moveDialog = moveAlert.create();
+            final AlertDialog moveDialog = moveAlert.create();
             moveDialog.show();
 
-            ImageView oneImageView = moveDialog.findViewById(R.id.oneImageView);
-            oneImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number1);
-                    imageView.setEnabled(false);
-                    imageView.setTag("1");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            final ImageView oneImageView = moveDialog.findViewById(R.id.oneImageView);
+            if (one) {
+                oneImageView.setVisibility(View.GONE);
+            } else {
+                oneImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        one = true;
+                        imageView.setImageResource(R.drawable.number1);
+                        imageView.setEnabled(false);
+                        imageView.setTag("1");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView threeImageView = moveDialog.findViewById(R.id.threeImageView);
-            threeImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number3);
-                    imageView.setEnabled(false);
-                    imageView.setTag("3");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (three) {
+                threeImageView.setVisibility(View.GONE);
+            } else {
+                threeImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        three = true;
+                        imageView.setImageResource(R.drawable.number3);
+                        imageView.setEnabled(false);
+                        imageView.setTag("3");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView fiveImageView = moveDialog.findViewById(R.id.fiveImageView);
-            fiveImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number5);
-                    imageView.setEnabled(false);
-                    imageView.setTag("5");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (five) {
+                fiveImageView.setVisibility(View.GONE);
+            } else {
+                fiveImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        five = true;
+                        imageView.setImageResource(R.drawable.number5);
+                        imageView.setEnabled(false);
+                        imageView.setTag("5");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView sevenImageView = moveDialog.findViewById(R.id.sevenImageView);
-            sevenImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number7);
-                    imageView.setEnabled(false);
-                    imageView.setTag("7");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (seven) {
+                sevenImageView.setVisibility(View.GONE);
+            } else {
+                sevenImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        seven = true;
+                        imageView.setImageResource(R.drawable.number7);
+                        imageView.setEnabled(false);
+                        imageView.setTag("7");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView nineImageView = moveDialog.findViewById(R.id.nineImageView);
-            nineImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number9);
-                    imageView.setEnabled(false);
-                    imageView.setTag("9");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (nine) {
+                nineImageView.setVisibility(View.GONE);
+            } else {
+                nineImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        nine = true;
+                        imageView.setImageResource(R.drawable.number9);
+                        imageView.setEnabled(false);
+                        imageView.setTag("9");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
         } else {
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.false_moves, null);
             AlertDialog.Builder moveAlert = new AlertDialog.Builder(this);
             moveAlert.setView(alertLayout);
             moveAlert.setCancelable(true);
-            AlertDialog moveDialog = moveAlert.create();
+            final AlertDialog moveDialog = moveAlert.create();
             moveDialog.show();
 
             ImageView twoImageView = moveDialog.findViewById(R.id.twoImageView);
-            twoImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number2);
-                    imageView.setEnabled(false);
-                    imageView.setTag("2");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (two) {
+                twoImageView.setVisibility(View.GONE);
+            } else {
+                twoImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        two = true;
+                        imageView.setImageResource(R.drawable.number2);
+                        imageView.setEnabled(false);
+                        imageView.setTag("2");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView fourImageView = moveDialog.findViewById(R.id.fourImageView);
-            fourImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number4);
-                    imageView.setEnabled(false);
-                    imageView.setTag("4");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (four) {
+                fourImageView.setVisibility(View.GONE);
+            } else {
+                fourImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        four = true;
+                        imageView.setImageResource(R.drawable.number4);
+                        imageView.setEnabled(false);
+                        imageView.setTag("4");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView sixImageView = moveDialog.findViewById(R.id.sixImageView);
-            sixImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number6);
-                    imageView.setEnabled(false);
-                    imageView.setTag("6");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (six) {
+                sixImageView.setVisibility(View.GONE);
+            } else {
+                sixImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        six = true;
+                        imageView.setImageResource(R.drawable.number6);
+                        imageView.setEnabled(false);
+                        imageView.setTag("6");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
 
             ImageView eightImageView = moveDialog.findViewById(R.id.eightImageView);
-            eightImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //set image resource, set tint, set enabled
-                    imageView.setImageResource(R.drawable.number6);
-                    imageView.setEnabled(false);
-                    imageView.setTag("8");
-                    counter++;
-                    checkForWin();
-                    turn = !turn;
-                }
-            });
+            if (eight) {
+                eightImageView.setVisibility(View.GONE);
+            } else {
+                eightImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        eight = true;
+                        imageView.setImageResource(R.drawable.number6);
+                        imageView.setEnabled(false);
+                        imageView.setTag("8");
+                        counter++;
+                        checkForWin();
+                        turn = !turn;
+                        moveDialog.dismiss();
+                    }
+                });
+            }
         }
     }
 
