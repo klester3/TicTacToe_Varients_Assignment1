@@ -76,9 +76,9 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             winDialog.show();
             TextView winTextView = winDialog.findViewById(R.id.winTextView);
             if (turn) {
-                winTextView.setText("Odd wins");
+                winTextView.setText(R.string.odd_wins);
             } else {
-                winTextView.setText("Even wins");
+                winTextView.setText(R.string.even_wins);
             }
             winDialog.findViewById(R.id.quitTextView).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -103,7 +103,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             AlertDialog winDialog = winAlert.create();
             winDialog.show();
             TextView winTextView = winDialog.findViewById(R.id.winTextView);
-            winTextView.setText("It's a tie");
+            winTextView.setText(R.string.tie);
             winDialog.findViewById(R.id.quitTextView).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
