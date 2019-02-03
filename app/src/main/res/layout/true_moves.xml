@@ -6,64 +6,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/oneImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:tintMode="screen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/number1" />
-
-    <ImageView
-        android:id="@+id/threeImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:tintMode="screen"
-        app:layout_constraintEnd_toStartOf="@+id/fiveImageView"
-        app:layout_constraintStart_toEndOf="@+id/oneImageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/number3" />
-
-    <ImageView
-        android:id="@+id/fiveImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:tintMode="screen"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/number5" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/sevenImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:tintMode="screen"
-        app:layout_constraintEnd_toStartOf="@+id/nineImageView"
-        app:layout_constraintStart_toEndOf="@+id/fiveImageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/number7" />
+        <ImageView
+            android:id="@+id/oneImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:tintMode="screen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number1" />
 
-    <ImageView
-        android:id="@+id/nineImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:tintMode="screen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/number9" />
+        <ImageView
+            android:id="@+id/threeImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:tintMode="screen"
+            app:layout_constraintEnd_toStartOf="@+id/fiveImageView"
+            app:layout_constraintStart_toEndOf="@+id/oneImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number3" />
+
+        <ImageView
+            android:id="@+id/fiveImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:tintMode="screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number5" />
+
+        <ImageView
+            android:id="@+id/sevenImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:tintMode="screen"
+            app:layout_constraintEnd_toStartOf="@+id/nineImageView"
+            app:layout_constraintStart_toEndOf="@+id/fiveImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number7" />
+
+        <ImageView
+            android:id="@+id/nineImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:tintMode="screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number9" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
