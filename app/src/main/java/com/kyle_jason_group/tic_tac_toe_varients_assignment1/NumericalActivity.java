@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class NumericalActivity extends AppCompatActivity implements View.OnClickListener {
 
     private boolean turn;
     private boolean clicked;
+    private int counter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
         turn = true;
         clicked = false;
+        counter = 0;
 
         findViewById(R.id.imageView).setOnClickListener(this);
         findViewById(R.id.imageView2).setOnClickListener(this);
@@ -37,9 +40,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             return;
         } else {
             clicked = true;
-            getMove(turn, view.getId());
-            checkForWin();
-            turn = !turn;
+            getMove(view.getId());
             clicked = false;
         }
     }
@@ -48,6 +49,8 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         int[][] gameBoard = getGameBoard();
         if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
             //display winner dialog
+        } else if (counter >= 9) {
+            //display tie dialog
         }
     }
 
@@ -100,7 +103,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         return gameBoard;
     }
 
-    private void getMove(boolean turn, int view) {
+    private void getMove(int view) {
         final ImageView imageView = findViewById(view);
         if (turn) {
             LayoutInflater inflater = getLayoutInflater();
@@ -118,6 +121,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number1);
                     imageView.setEnabled(false);
+                    imageView.setTag("1");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -128,6 +135,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number3);
                     imageView.setEnabled(false);
+                    imageView.setTag("3");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -138,6 +149,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number5);
                     imageView.setEnabled(false);
+                    imageView.setTag("5");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -148,6 +163,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number7);
                     imageView.setEnabled(false);
+                    imageView.setTag("7");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -158,6 +177,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number9);
                     imageView.setEnabled(false);
+                    imageView.setTag("9");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
         } else {
@@ -176,6 +199,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number2);
                     imageView.setEnabled(false);
+                    imageView.setTag("2");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -186,6 +213,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number4);
                     imageView.setEnabled(false);
+                    imageView.setTag("4");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -196,6 +227,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number6);
                     imageView.setEnabled(false);
+                    imageView.setTag("6");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
 
@@ -206,8 +241,41 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     //set image resource, set tint, set enabled
                     imageView.setImageResource(R.drawable.number6);
                     imageView.setEnabled(false);
+                    imageView.setTag("8");
+                    counter++;
+                    checkForWin();
+                    turn = !turn;
                 }
             });
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (counter >= 1) {
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.quit_dialog, null);
+            AlertDialog.Builder quitAlert = new AlertDialog.Builder(this);
+            quitAlert.setView(alertLayout);
+            quitAlert.setCancelable(true);
+            final AlertDialog quitDialog = quitAlert.create();
+            quitDialog.show();
+            TextView quitTextView = alertLayout.findViewById(R.id.quitTextView);
+            quitTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    NumericalActivity.super.onBackPressed();
+                }
+            });
+            TextView cancelTextView = alertLayout.findViewById(R.id.cancelTextView);
+            cancelTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    quitDialog.dismiss();
+                }
+            });
+        } else {
+            super.onBackPressed();
         }
     }
 }
