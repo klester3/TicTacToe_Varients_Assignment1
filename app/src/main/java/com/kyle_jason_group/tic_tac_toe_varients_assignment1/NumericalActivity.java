@@ -1,5 +1,6 @@
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -66,9 +67,57 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     private void checkForWin() {
         int[][] gameBoard = getGameBoard();
         if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
-            //display winner dialog
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.win_dialog, null);
+            AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
+            winAlert.setView(alertLayout);
+            winAlert.setCancelable(false);
+            AlertDialog winDialog = winAlert.create();
+            winDialog.show();
+            TextView winTextView = winDialog.findViewById(R.id.winTextView);
+            if (turn) {
+                winTextView.setText("Odd wins");
+            } else {
+                winTextView.setText("Even wins");
+            }
+            winDialog.findViewById(R.id.quitTextView).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+            winDialog.findViewById(R.id.playTextView).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                    Intent intent = new Intent(getApplicationContext(), NumericalActivity.class);
+                    startActivity(intent);
+                }
+            });
         } else if (counter >= 9) {
-            //display tie dialog
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.win_dialog, null);
+            AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
+            winAlert.setView(alertLayout);
+            winAlert.setCancelable(false);
+            AlertDialog winDialog = winAlert.create();
+            winDialog.show();
+            TextView winTextView = winDialog.findViewById(R.id.winTextView);
+            winTextView.setText("It's a tie");
+            winDialog.findViewById(R.id.quitTextView).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+            winDialog.findViewById(R.id.playTextView).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                    Intent intent = new Intent(getApplicationContext(), NumericalActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
     }
 
@@ -300,7 +349,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         eight = true;
-                        imageView.setImageResource(R.drawable.number6);
+                        imageView.setImageResource(R.drawable.number8);
                         imageView.setEnabled(false);
                         imageView.setTag("8");
                         counter++;
@@ -323,15 +372,13 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             quitAlert.setCancelable(true);
             final AlertDialog quitDialog = quitAlert.create();
             quitDialog.show();
-            TextView quitTextView = alertLayout.findViewById(R.id.quitTextView);
-            quitTextView.setOnClickListener(new View.OnClickListener() {
+            quitDialog.findViewById(R.id.quitTextView).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     NumericalActivity.super.onBackPressed();
                 }
             });
-            TextView cancelTextView = alertLayout.findViewById(R.id.cancelTextView);
-            cancelTextView.setOnClickListener(new View.OnClickListener() {
+            quitDialog.findViewById(R.id.cancelTextView).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     quitDialog.dismiss();
