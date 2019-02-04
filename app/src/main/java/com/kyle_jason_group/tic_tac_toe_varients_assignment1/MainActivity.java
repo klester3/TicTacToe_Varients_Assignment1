@@ -21,5 +21,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Jason's Button
+        findViewById(R.id.numericalButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NumericalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
