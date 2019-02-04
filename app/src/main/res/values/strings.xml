@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tic-Tac-Toe_Varients_Assignment1</string>
+    <string name="odd_wins">Odd wins</string>
+    <string name="even_wins">Even wins</string>
+    <string name="tie">It\'s a tie</string>
+    <string name="quit">Quit</string>
+    <string name="cancel">Cancel</string>
+    <string name="play_again">Play Again</string>
+    <string name="quit_dialog">Are you sure?</string>
+    <string name="numerical_rules">The numbers 1 to 9 are used in this game. The first player plays with the odd numbers, the second player plays with the even numbers. All numbers can be used only once. The player who puts down 15 points in a line wins (sum of 3 numbers).</string>
 </resources>
