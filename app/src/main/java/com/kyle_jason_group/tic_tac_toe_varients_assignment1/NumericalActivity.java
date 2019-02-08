@@ -1,5 +1,6 @@
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -8,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class NumericalActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,8 +32,6 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numerical);
-
-        String[] savedGame = readFile();
 
         turn = true;
         clicked = false;
@@ -68,10 +70,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void checkForWin() {
         int[][] gameBoard = getGameBoard();
-        final String COMPLETE_STRING = "complete";
-        final String IN_PROGRESS_STRING = "in progress";
         if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
-            writeToFile(COMPLETE_STRING);
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.win_dialog, null);
             AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
@@ -100,7 +99,6 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                 }
             });
         } else if (counter >= 9) {
-            writeToFile(COMPLETE_STRING);
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.win_dialog, null);
             AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
@@ -124,19 +122,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     startActivity(intent);
                 }
             });
-        } else {
-            writeToFile(IN_PROGRESS_STRING);
         }
-    }
-
-    private void writeToFile(String string) {
-        //write to file
-    }
-
-    private String[] readFile() {
-        //read file
-        String[] savedGame = {"complete"};
-        return savedGame;
     }
 
     private boolean checkDiagonal(int[][] gameBoard) {
