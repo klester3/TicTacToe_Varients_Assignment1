@@ -29,6 +29,8 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numerical);
 
+        String[] savedGame = readFile();
+
         turn = true;
         clicked = false;
         counter = 0;
@@ -66,7 +68,10 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void checkForWin() {
         int[][] gameBoard = getGameBoard();
+        final String COMPLETE_STRING = "complete";
+        final String IN_PROGRESS_STRING = "in progress";
         if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
+            writeToFile(COMPLETE_STRING);
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.win_dialog, null);
             AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
@@ -95,6 +100,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                 }
             });
         } else if (counter >= 9) {
+            writeToFile(COMPLETE_STRING);
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.win_dialog, null);
             AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
@@ -118,7 +124,19 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     startActivity(intent);
                 }
             });
+        } else {
+            writeToFile(IN_PROGRESS_STRING);
         }
+    }
+
+    private void writeToFile(String string) {
+        //write to file
+    }
+
+    private String[] readFile() {
+        //read file
+        String[] savedGame = {"complete"};
+        return savedGame;
     }
 
     private boolean checkDiagonal(int[][] gameBoard) {
