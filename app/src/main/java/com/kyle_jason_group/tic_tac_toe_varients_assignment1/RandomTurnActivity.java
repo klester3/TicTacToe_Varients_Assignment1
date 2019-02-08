@@ -69,12 +69,12 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
             imageView.setImageResource(R.drawable.ttt_x);
             imageView.setEnabled(false);
             imageView.setTag("x");
-            checkWin();
+            //checkWin();
         }else{
             imageView.setImageResource(R.drawable.ttt_o);
             imageView.setEnabled(false);
             imageView.setTag("o");
-            checkWin();
+            //checkWin();
         }
     }
 
