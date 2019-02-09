@@ -58,11 +58,17 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
+        TextView tv = findViewById(R.id.textView_turn);
+
        place_piece(view.getId());
        getTurn();
        changeText();
        if(checkWin()){
-
+           if(winner.equals("x")){
+               tv.setText("The Winner is Player X!");
+           }else{
+               tv.setText("The Winner is Player O!");
+           }
        }
     }
 
@@ -81,7 +87,6 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
 
     private boolean checkWin() {
         String[][] gameBoard = getGameBoard();
-        TextView tv = findViewById(R.id.textView_turn);
 
         if(checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagnol(gameBoard)){
             return true;
@@ -90,7 +95,30 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
     }
 
     private boolean checkDiagnol(String[][] gameBoard) {
-        return false;
+        boolean xWin;
+        boolean oWin;
+        oWin = scanDiagnol("o",gameBoard);
+        xWin = scanDiagnol("x",gameBoard);
+
+        if(oWin){
+            winner = "o";
+            return true;
+        }else if(xWin) {
+            winner = "x";
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean scanDiagnol(String player, String[][] gameBoard) {
+        if (gameBoard[0][0] == player && gameBoard[1][1] == player && gameBoard[2][2] == player) {
+            return true;
+        }else if(gameBoard[0][2] == player && gameBoard[1][1] == player && gameBoard[2][0] == player){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private boolean checkVertical(String[][] gameBoard) {
