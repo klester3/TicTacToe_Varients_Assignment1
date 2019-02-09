@@ -61,6 +61,9 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
        place_piece(view.getId());
        getTurn();
        changeText();
+       if(checkWin()){
+
+       }
     }
 
     private void place_piece(int id) {
@@ -69,22 +72,21 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
             imageView.setImageResource(R.drawable.ttt_x);
             imageView.setEnabled(false);
             imageView.setTag("x");
-            //checkWin();
         }else{
             imageView.setImageResource(R.drawable.ttt_o);
             imageView.setEnabled(false);
             imageView.setTag("o");
-            //checkWin();
         }
     }
 
-    private void checkWin() {
+    private boolean checkWin() {
         String[][] gameBoard = getGameBoard();
         TextView tv = findViewById(R.id.textView_turn);
 
         if(checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagnol(gameBoard)){
-            tv.setText(winner);
+            return true;
         }
+        return false;
     }
 
     private boolean checkDiagnol(String[][] gameBoard) {
@@ -97,29 +99,28 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         oWin = scanVertical("o",gameBoard);
         xWin = scanVertical("x",gameBoard);
 
-        if(oWin || xWin){
+        if(oWin){
+            winner = "o";
             return true;
-        }else {
+        }else if(xWin) {
+            winner = "x";
+            return true;
+        }else{
             return false;
         }
+
     }
 
     private Boolean scanVertical(String player, String[][] gameBoard) {
-        int num = 0;
-
-        for (int i = 0; i < 3; i++){
-            for (int k = 0; k < 3; k++){
-                if(gameBoard[k][i] == player){
-                    num++;
-                }
-            }
-            if(num == 3){
-                winner = player;
-                return true;
-            }
+        if (gameBoard[0][0] == player && gameBoard[1][0] == player && gameBoard[2][0] == player) {
+            return true;
+        } else if (gameBoard[0][1] == player && gameBoard[1][1] == player && gameBoard[2][1] == player) {
+            return true;
+        } else if (gameBoard[0][2] == player && gameBoard[1][2] == player && gameBoard[2][2] == player) {
+            return true;
+        } else {
+            return false;
         }
-
-        return false;
     }
 
     private boolean checkHorizontal(String[][] gameBoard) {
@@ -128,44 +129,42 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         oWin = scanHorizontal("o",gameBoard);
         xWin = scanHorizontal("x",gameBoard);
 
-        if(oWin || xWin){
+        if(oWin){
+            winner = "o";
             return true;
-        }else {
+        }else if(xWin) {
+            winner = "x";
+            return true;
+        }else{
             return false;
         }
     }
-    //PROBLEM HERE
+
     private boolean scanHorizontal(String player, String[][] gameBoard) {
-        int num = 0;
-
-        for (int i = 0; i < 3; i++){
-            for (int k = 0; k < 3; k++){
-                Log.i("!!!",i+","+k+","+player+","+gameBoard[i][k]);
-                if(gameBoard[i][k] == player){
-                    num++;
-                }
-            }
-            if(num == 3){
-                winner = player;
-                return true;
-            }
+        if (gameBoard[0][0] == player && gameBoard[0][1] == player && gameBoard[0][2] == player) {
+            return true;
+        } else if (gameBoard[1][0] == player && gameBoard[1][1] == player && gameBoard[1][2] == player) {
+            return true;
+        } else if (gameBoard[2][0] == player && gameBoard[2][1] == player && gameBoard[2][2] == player) {
+            return true;
+        } else {
+            return false;
         }
-
-        return false;
     }
 
     private String[][] getGameBoard() {
         String[][] gameBoard = new String[][]{
                 {findViewById(R.id.imageView_tile_a1).getTag().toString(),
                         findViewById(R.id.imageView_tile_a2).getTag().toString(),
-                        findViewById(R.id.imageView_tile_a3).getTag().toString(),
-                        findViewById(R.id.imageView_tile_b1).getTag().toString(),
+                        findViewById(R.id.imageView_tile_a3).getTag().toString()},
+                {findViewById(R.id.imageView_tile_b1).getTag().toString(),
                         findViewById(R.id.imageView_tile_b2).getTag().toString(),
-                        findViewById(R.id.imageView_tile_b3).getTag().toString(),
-                        findViewById(R.id.imageView_tile_c1).getTag().toString(),
+                        findViewById(R.id.imageView_tile_b3).getTag().toString()},
+                {findViewById(R.id.imageView_tile_c1).getTag().toString(),
                         findViewById(R.id.imageView_tile_c2).getTag().toString(),
                         findViewById(R.id.imageView_tile_c3).getTag().toString()}
                 };
+
         return gameBoard;
     }
 }
