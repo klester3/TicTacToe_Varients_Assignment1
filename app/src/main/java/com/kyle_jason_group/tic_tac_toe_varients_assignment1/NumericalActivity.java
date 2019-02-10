@@ -1,15 +1,43 @@
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NumericalActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public final String NUMERICAL_PREFS = "numericalPrefs";
+
+    private SharedPreferences sharedPreferences;
+    private final String BOX_1 = "box1";
+    private final String BOX_2 = "box2";
+    private final String BOX_3 = "box3";
+    private final String BOX_4 = "box4";
+    private final String BOX_5 = "box5";
+    private final String BOX_6 = "box6";
+    private final String BOX_7 = "box7";
+    private final String BOX_8 = "box8";
+    private final String BOX_9 = "box9";
+    private final String TURN = "turn";
+    private final String COUNTER = "counter";
+    private final String ONE = "one";
+    private final String TWO = "two";
+    private final String THREE = "three";
+    private final String FOUR = "four";
+    private final String FIVE = "five";
+    private final String SIX = "six";
+    private final String SEVEN = "seven";
+    private final String EIGHT = "eight";
+    private final String NINE = "nine";
+
 
     private boolean turn;
     private boolean clicked;
@@ -29,28 +57,100 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numerical);
 
-        turn = true;
-        clicked = false;
-        counter = 0;
-        one = false;
-        two = false;
-        three = false;
-        four = false;
-        five = false;
-        six = false;
-        seven = false;
-        eight = false;
-        nine = false;
+        sharedPreferences = getSharedPreferences(NUMERICAL_PREFS, Context.MODE_PRIVATE);
 
-        findViewById(R.id.imageView).setOnClickListener(this);
-        findViewById(R.id.imageView2).setOnClickListener(this);
-        findViewById(R.id.imageView3).setOnClickListener(this);
-        findViewById(R.id.imageView4).setOnClickListener(this);
-        findViewById(R.id.imageView5).setOnClickListener(this);
-        findViewById(R.id.imageView6).setOnClickListener(this);
-        findViewById(R.id.imageView7).setOnClickListener(this);
-        findViewById(R.id.imageView8).setOnClickListener(this);
-        findViewById(R.id.imageView9).setOnClickListener(this);
+        turn = sharedPreferences.getBoolean(TURN, true);
+        clicked = false;
+        counter = sharedPreferences.getInt(COUNTER, 0);
+        one = sharedPreferences.getBoolean(ONE, false);
+        two = sharedPreferences.getBoolean(TWO, false);
+        three = sharedPreferences.getBoolean(THREE, false);
+        four = sharedPreferences.getBoolean(FOUR, false);
+        five = sharedPreferences.getBoolean(FIVE, false);
+        six = sharedPreferences.getBoolean(SIX, false);
+        seven = sharedPreferences.getBoolean(SEVEN, false);
+        eight = sharedPreferences.getBoolean(EIGHT, false);
+        nine = sharedPreferences.getBoolean(NINE, false);
+
+        ImageView imageView;
+        int tag;
+
+        imageView = findViewById(R.id.imageView);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_1, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView2);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_2, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView3);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_3, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView4);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_4, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView5);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_5, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView6);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_6, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView7);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_7, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView8);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_8, 42);
+        setGameBoard(tag, imageView);
+        imageView = findViewById(R.id.imageView9);
+        imageView.setOnClickListener(this);
+        tag = sharedPreferences.getInt(BOX_9, 42);
+        setGameBoard(tag, imageView);
+    }
+
+    private void setGameBoard(int tag, ImageView imageView) {
+        if (tag == 1) {
+            imageView.setImageResource(R.drawable.number1);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 2) {
+            imageView.setImageResource(R.drawable.number2);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 3) {
+            imageView.setImageResource(R.drawable.number3);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 4) {
+            imageView.setImageResource(R.drawable.number4);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 5) {
+            imageView.setImageResource(R.drawable.number5);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 6) {
+            imageView.setImageResource(R.drawable.number6);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 7) {
+            imageView.setImageResource(R.drawable.number7);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 8) {
+            imageView.setImageResource(R.drawable.number8);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        } else if (tag == 9) {
+            imageView.setImageResource(R.drawable.number9);
+            imageView.setTag(tag);
+            imageView.setEnabled(false);
+        }
     }
 
     @Override
@@ -64,9 +164,45 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    @Override
+    protected void onPause() {
+        int[][] gameBoard = getGameBoard();
+        if (!checkHorizontal(gameBoard) && !checkVertical(gameBoard) && !checkDiagonal(gameBoard)
+        && counter < 9) {
+            saveGame();
+        }
+        super.onPause();
+    }
+
+    private void saveGame() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TURN, turn);
+        editor.putInt(COUNTER, counter);
+        editor.putBoolean(ONE, one);
+        editor.putBoolean(TWO, two);
+        editor.putBoolean(THREE, three);
+        editor.putBoolean(FOUR, four);
+        editor.putBoolean(FIVE, five);
+        editor.putBoolean(SIX, six);
+        editor.putBoolean(SEVEN, seven);
+        editor.putBoolean(EIGHT, eight);
+        editor.putBoolean(NINE, nine);
+        editor.putInt(BOX_1, Integer.valueOf(findViewById(R.id.imageView).getTag().toString()));
+        editor.putInt(BOX_2, Integer.valueOf(findViewById(R.id.imageView2).getTag().toString()));
+        editor.putInt(BOX_3, Integer.valueOf(findViewById(R.id.imageView3).getTag().toString()));
+        editor.putInt(BOX_4, Integer.valueOf(findViewById(R.id.imageView4).getTag().toString()));
+        editor.putInt(BOX_5, Integer.valueOf(findViewById(R.id.imageView5).getTag().toString()));
+        editor.putInt(BOX_6, Integer.valueOf(findViewById(R.id.imageView6).getTag().toString()));
+        editor.putInt(BOX_7, Integer.valueOf(findViewById(R.id.imageView7).getTag().toString()));
+        editor.putInt(BOX_8, Integer.valueOf(findViewById(R.id.imageView8).getTag().toString()));
+        editor.putInt(BOX_9, Integer.valueOf(findViewById(R.id.imageView9).getTag().toString()));
+        editor.apply();
+    }
+
     private void checkForWin() {
         int[][] gameBoard = getGameBoard();
         if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
+            clearPreferences();
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.win_dialog, null);
             AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
@@ -95,6 +231,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                 }
             });
         } else if (counter >= 9) {
+            clearPreferences();
             LayoutInflater inflater = getLayoutInflater();
             View alertLayout = inflater.inflate(R.layout.win_dialog, null);
             AlertDialog.Builder winAlert = new AlertDialog.Builder(this);
@@ -119,6 +256,31 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                 }
             });
         }
+    }
+
+    private void clearPreferences() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TURN, true);
+        editor.putInt(COUNTER, 0);
+        editor.putBoolean(ONE, false);
+        editor.putBoolean(TWO, false);
+        editor.putBoolean(THREE, false);
+        editor.putBoolean(FOUR, false);
+        editor.putBoolean(FIVE, false);
+        editor.putBoolean(SIX, false);
+        editor.putBoolean(SEVEN, false);
+        editor.putBoolean(EIGHT, false);
+        editor.putBoolean(NINE, false);
+        editor.putInt(BOX_1, 42);
+        editor.putInt(BOX_2, 42);
+        editor.putInt(BOX_3, 42);
+        editor.putInt(BOX_4, 42);
+        editor.putInt(BOX_5, 42);
+        editor.putInt(BOX_6, 42);
+        editor.putInt(BOX_7, 42);
+        editor.putInt(BOX_8, 42);
+        editor.putInt(BOX_9, 42);
+        editor.apply();
     }
 
     private boolean checkDiagonal(int[][] gameBoard) {
