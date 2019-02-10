@@ -201,7 +201,11 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onBackPressed() {
-        pressedQuit();
+        if (counter > 0) {
+            pressedQuit();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void pressedQuit() {
