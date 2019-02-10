@@ -66,12 +66,12 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
     private void place_piece(int id) {
         final ImageView imageView = findViewById(id);
         if(who_turn){
-            imageView.setImageResource(R.drawable.ttt_x);
+            imageView.setImageResource(R.drawable.number1);
             imageView.setEnabled(false);
             imageView.setTag("x");
             //checkWin();
         }else{
-            imageView.setImageResource(R.drawable.ttt_o);
+            imageView.setImageResource(R.drawable.number1);
             imageView.setEnabled(false);
             imageView.setTag("o");
             //checkWin();

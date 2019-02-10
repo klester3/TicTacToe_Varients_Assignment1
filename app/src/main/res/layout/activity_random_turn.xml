@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_height="match_parent">
 
 
     <ImageView
@@ -18,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_gameboard" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageView
         android:id="@+id/imageView_tile_a2"
@@ -29,7 +28,7 @@
         android:tag="b"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageView
         android:id="@+id/imageView_tile_a1"
@@ -40,7 +39,7 @@
         android:tag="b"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageView
         android:id="@+id/imageView_tile_b3"
@@ -51,7 +50,7 @@
         android:tag="b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView_tile_b2"
@@ -62,7 +61,7 @@
         android:tag="b"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView_tile_b1"
@@ -73,7 +72,7 @@
         android:tag="b"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView_tile_a3"
@@ -84,7 +83,7 @@
         android:tag="b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView_tile_c3"
@@ -95,7 +94,7 @@
         android:tag="b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView_tile_c2"
@@ -106,7 +105,7 @@
         android:tag="b"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <ImageView
         android:id="@+id/imageView_tile_c1"
@@ -117,7 +116,7 @@
         android:tag="b"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ttt_blank" />
+        app:srcCompat="@drawable/ic_launcher_background"/>
 
     <TextView
         android:id="@+id/textView_turn"
