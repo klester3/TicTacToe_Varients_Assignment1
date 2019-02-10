@@ -2,8 +2,10 @@ package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +34,35 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         findViewById(R.id.imageView_tile_c1).setOnClickListener(this);
         findViewById(R.id.imageView_tile_c2).setOnClickListener(this);
         findViewById(R.id.imageView_tile_c3).setOnClickListener(this);
+
+        findViewById(R.id.imageButton_quit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pressedQuit();
+            }
+        });
+    }
+
+    private void pressedQuit() {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.quit_random_dialog, null);
+        AlertDialog.Builder quitAlert = new AlertDialog.Builder(this);
+        quitAlert.setView(alertLayout);
+        quitAlert.setCancelable(true);
+        final AlertDialog quitDialog = quitAlert.create();
+        quitDialog.show();
+        quitDialog.findViewById(R.id.textView_quit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RandomTurnActivity.super.onBackPressed();
+            }
+        });
+        quitDialog.findViewById(R.id.textView_cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quitDialog.dismiss();
+            }
+        });
     }
 
     private void changeText() {
