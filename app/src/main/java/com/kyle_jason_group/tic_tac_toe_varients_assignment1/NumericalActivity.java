@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 
 public class NumericalActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public final String NUMERICAL_PREFS = "numericalPrefs";
+    private final String NUMERICAL_PREFS = "numericalPrefs";
 
     private SharedPreferences sharedPreferences;
     private final String BOX_1 = "box1";
@@ -115,39 +114,39 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
 
     private void setGameBoard(int tag, ImageView imageView) {
         if (tag == 1) {
-            imageView.setImageResource(R.drawable.number1);
+            imageView.setImageResource(R.drawable.ttt_1);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 2) {
-            imageView.setImageResource(R.drawable.number2);
+            imageView.setImageResource(R.drawable.ttt_2);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 3) {
-            imageView.setImageResource(R.drawable.number3);
+            imageView.setImageResource(R.drawable.ttt_3);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 4) {
-            imageView.setImageResource(R.drawable.number4);
+            imageView.setImageResource(R.drawable.ttt_4);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 5) {
-            imageView.setImageResource(R.drawable.number5);
+            imageView.setImageResource(R.drawable.ttt_5);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 6) {
-            imageView.setImageResource(R.drawable.number6);
+            imageView.setImageResource(R.drawable.ttt_6);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 7) {
-            imageView.setImageResource(R.drawable.number7);
+            imageView.setImageResource(R.drawable.ttt_7);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 8) {
-            imageView.setImageResource(R.drawable.number8);
+            imageView.setImageResource(R.drawable.ttt_8);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         } else if (tag == 9) {
-            imageView.setImageResource(R.drawable.number9);
+            imageView.setImageResource(R.drawable.ttt_9);
             imageView.setTag(tag);
             imageView.setEnabled(false);
         }
@@ -351,7 +350,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         one = true;
-                        imageView.setImageResource(R.drawable.number1);
+                        imageView.setImageResource(R.drawable.ttt_1);
                         imageView.setEnabled(false);
                         imageView.setTag("1");
                         counter++;
@@ -370,7 +369,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         three = true;
-                        imageView.setImageResource(R.drawable.number3);
+                        imageView.setImageResource(R.drawable.ttt_3);
                         imageView.setEnabled(false);
                         imageView.setTag("3");
                         counter++;
@@ -389,7 +388,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         five = true;
-                        imageView.setImageResource(R.drawable.number5);
+                        imageView.setImageResource(R.drawable.ttt_5);
                         imageView.setEnabled(false);
                         imageView.setTag("5");
                         counter++;
@@ -408,7 +407,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         seven = true;
-                        imageView.setImageResource(R.drawable.number7);
+                        imageView.setImageResource(R.drawable.ttt_7);
                         imageView.setEnabled(false);
                         imageView.setTag("7");
                         counter++;
@@ -427,7 +426,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         nine = true;
-                        imageView.setImageResource(R.drawable.number9);
+                        imageView.setImageResource(R.drawable.ttt_9);
                         imageView.setEnabled(false);
                         imageView.setTag("9");
                         counter++;
@@ -454,7 +453,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         two = true;
-                        imageView.setImageResource(R.drawable.number2);
+                        imageView.setImageResource(R.drawable.ttt_2);
                         imageView.setEnabled(false);
                         imageView.setTag("2");
                         counter++;
@@ -473,7 +472,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         four = true;
-                        imageView.setImageResource(R.drawable.number4);
+                        imageView.setImageResource(R.drawable.ttt_4);
                         imageView.setEnabled(false);
                         imageView.setTag("4");
                         counter++;
@@ -492,7 +491,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         six = true;
-                        imageView.setImageResource(R.drawable.number6);
+                        imageView.setImageResource(R.drawable.ttt_6);
                         imageView.setEnabled(false);
                         imageView.setTag("6");
                         counter++;
@@ -511,7 +510,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onClick(View view) {
                         eight = true;
-                        imageView.setImageResource(R.drawable.number8);
+                        imageView.setImageResource(R.drawable.ttt_8);
                         imageView.setEnabled(false);
                         imageView.setTag("8");
                         counter++;

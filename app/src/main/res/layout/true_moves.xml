@@ -28,7 +28,7 @@
             android:tintMode="screen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number1" />
+            app:srcCompat="@drawable/ttt_1" />
 
         <ImageView
             android:id="@+id/threeImageView"
@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toStartOf="@+id/fiveImageView"
             app:layout_constraintStart_toEndOf="@+id/oneImageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number3" />
+            app:srcCompat="@drawable/ttt_3" />
 
         <ImageView
             android:id="@+id/fiveImageView"
@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number5" />
+            app:srcCompat="@drawable/ttt_5" />
 
         <ImageView
             android:id="@+id/sevenImageView"
@@ -67,7 +67,7 @@
             app:layout_constraintEnd_toStartOf="@+id/nineImageView"
             app:layout_constraintStart_toEndOf="@+id/fiveImageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number7" />
+            app:srcCompat="@drawable/ttt_7" />
 
         <ImageView
             android:id="@+id/nineImageView"
@@ -79,7 +79,7 @@
             android:tintMode="screen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number9" />
+            app:srcCompat="@drawable/ttt_9" />
 
     </LinearLayout>
 

@@ -27,7 +27,7 @@
             android:tintMode="screen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number2" />
+            app:srcCompat="@drawable/ttt_2" />
 
         <ImageView
             android:id="@+id/fourImageView"
@@ -38,7 +38,7 @@
             android:layout_marginBottom="8dp"
             android:tintMode="screen"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number4"
+            app:srcCompat="@drawable/ttt_4"
             tools:layout_editor_absoluteX="74dp" />
 
         <ImageView
@@ -50,7 +50,7 @@
             android:layout_marginBottom="8dp"
             android:tintMode="screen"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number6"
+            app:srcCompat="@drawable/ttt_6"
             tools:layout_editor_absoluteX="238dp" />
 
         <ImageView
@@ -63,7 +63,7 @@
             android:tintMode="screen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/number8" />
+            app:srcCompat="@drawable/ttt_8" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
