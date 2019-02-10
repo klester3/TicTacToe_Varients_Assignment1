@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Kyle Test Button
-        findViewById(R.id.button_kyle_test).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imageButton_random).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Jason's Button
-        findViewById(R.id.numericalButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imageButton_numerical).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), NumericalActivity.class);
