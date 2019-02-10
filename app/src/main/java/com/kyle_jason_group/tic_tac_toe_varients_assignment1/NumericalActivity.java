@@ -161,7 +161,6 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         } else {
             clicked = true;
             getMove(view.getId());
-            clicked = false;
         }
     }
 
@@ -359,6 +358,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -378,6 +378,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -397,6 +398,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -416,6 +418,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -435,6 +438,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -462,6 +466,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -481,6 +486,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -500,6 +506,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
@@ -519,6 +526,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
                         checkForWin();
                         turn = !turn;
                         moveDialog.dismiss();
+                        clicked = false;
                     }
                 });
             }
