@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -41,11 +40,28 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
                 pressedQuit();
             }
         });
+
+        findViewById(R.id.imageButton_about).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pressedAbout();
+            }
+        });
+    }
+
+    private void pressedAbout() {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.random_about_dialog, null);
+        AlertDialog.Builder quitAlert = new AlertDialog.Builder(this);
+        quitAlert.setView(alertLayout);
+        quitAlert.setCancelable(true);
+        final AlertDialog quitDialog = quitAlert.create();
+        quitDialog.show();
     }
 
     private void pressedQuit() {
         LayoutInflater inflater = getLayoutInflater();
-        View alertLayout = inflater.inflate(R.layout.quit_random_dialog, null);
+        View alertLayout = inflater.inflate(R.layout.random_quit_dialog, null);
         AlertDialog.Builder quitAlert = new AlertDialog.Builder(this);
         quitAlert.setView(alertLayout);
         quitAlert.setCancelable(true);
