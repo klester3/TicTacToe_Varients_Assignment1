@@ -1,5 +1,11 @@
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
+/*
+Authors: Kyle and Jason
+Date: 2/13/19
+Tested On: Pixel 2
+ */
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
