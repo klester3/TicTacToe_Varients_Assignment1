@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 public class NumericalActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //variables used to save game data
     private final String NUMERICAL_PREFS = "numericalPrefs";
 
     private SharedPreferences sharedPreferences;
@@ -43,7 +44,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     private final String EIGHT = "eight";
     private final String NINE = "nine";
 
-
+    //variables used to ensure proper game functionality
     private boolean turn;
     private boolean clicked;
     private int counter;
@@ -61,9 +62,11 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numerical);
-
+        
+        //get saved game
         sharedPreferences = getSharedPreferences(NUMERICAL_PREFS, Context.MODE_PRIVATE);
 
+        //set variables to saved values
         turn = sharedPreferences.getBoolean(TURN, true);
         clicked = false;
         counter = sharedPreferences.getInt(COUNTER, 0);
@@ -118,6 +121,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         setGameBoard(tag, imageView);
     }
 
+    //set up game board based on saved values
     private void setGameBoard(int tag, ImageView imageView) {
         if (tag == 1) {
             imageView.setImageResource(R.drawable.ttt_1);
@@ -178,6 +182,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         super.onPause();
     }
 
+    //save game
     private void saveGame() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(TURN, turn);
@@ -203,6 +208,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         editor.apply();
     }
 
+    //check for win
     private void checkForWin() {
         int[][] gameBoard = getGameBoard();
         if (checkHorizontal(gameBoard) || checkVertical(gameBoard) || checkDiagonal(gameBoard)) {
@@ -262,6 +268,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //reset saved values to defaults
     private void clearPreferences() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(TURN, true);
@@ -287,6 +294,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         editor.apply();
     }
 
+    //check for diagonal winner
     private boolean checkDiagonal(int[][] gameBoard) {
         if (gameBoard[0][0] + gameBoard[1][1] + gameBoard[2][2] == 15) {
             return true;
@@ -297,6 +305,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //check for vertical winner
     private boolean checkVertical(int[][] gameBoard) {
         if (gameBoard[0][0] + gameBoard[1][0] + gameBoard[2][0] == 15) {
             return true;
@@ -309,6 +318,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //check for horizontal winner
     private boolean checkHorizontal(int[][] gameBoard) {
         if (gameBoard[0][0] + gameBoard[0][1] + gameBoard[0][2] == 15) {
             return true;
@@ -321,6 +331,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //get current game board
     private int[][] getGameBoard() {
         int[][] gameBoard = new int[][]{
                 {Integer.valueOf(findViewById(R.id.imageView).getTag().toString()),
@@ -336,6 +347,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         return gameBoard;
     }
 
+    //get current player move
     private void getMove(int view) {
         final ImageView imageView = findViewById(view);
         if (turn) {
@@ -537,6 +549,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    //display quit dialog
     @Override
     public void onBackPressed() {
         if (counter >= 1) {
