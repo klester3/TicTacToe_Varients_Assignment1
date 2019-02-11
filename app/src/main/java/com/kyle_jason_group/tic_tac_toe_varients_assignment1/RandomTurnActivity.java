@@ -1,3 +1,8 @@
+/*
+Authors: Kyle and Jason
+Date: 2/13/19
+Tested On: Pixel 2
+ */
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
 import android.content.Context;
@@ -29,6 +34,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
     private final String TURN = "turn";
     private final String COUNTER = "counter";
 
+    //global variables
     private Random random;
     private Boolean who_turn;
     private String winner;
@@ -84,6 +90,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         tag = sharedPreferences.getInt(BOX_9, 42);
         setGameBoard(tag, imageView);
 
+        //calls pressedQuit when pressed
         findViewById(R.id.imageButton_quit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +98,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        //calls pressedAbout when pressed
         findViewById(R.id.imageButton_about).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,6 +197,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         editor.apply();
     }
 
+    //displays dialog box that informs about the game
     private void pressedAbout() {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.random_about_dialog, null);
@@ -208,6 +217,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //displays quit screen dialog box
     private void pressedQuit() {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.random_quit_dialog, null);
@@ -230,6 +240,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
+    //sets text to show winner depending on the winner variable
     private void changeText() {
         TextView tv = findViewById(R.id.textView_turn);
 
@@ -240,6 +251,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //gets the current turn
     private void getTurn() {
         random = new Random();
         int num = random.nextInt();
@@ -312,6 +324,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         editor.apply();
     }
 
+    //sets the image to x or o depending on the turn
     private void place_piece(int id) {
         final ImageView imageView = findViewById(id);
         if(who_turn){
@@ -325,6 +338,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //calls all the check functions to see if there is a winner
     private boolean checkWin() {
         String[][] gameBoard = getGameBoard();
 
@@ -334,6 +348,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         return false;
     }
 
+    //checks the diagnol win options
     private boolean checkDiagnol(String[][] gameBoard) {
         boolean xWin;
         boolean oWin;
@@ -351,6 +366,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //scans the board for the diagnol runs
     private boolean scanDiagnol(String player, String[][] gameBoard) {
         if (gameBoard[0][0] == player && gameBoard[1][1] == player && gameBoard[2][2] == player) {
             return true;
@@ -361,6 +377,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //checks for the vertical win options
     private boolean checkVertical(String[][] gameBoard) {
         boolean xWin;
         boolean oWin;
@@ -379,6 +396,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
 
     }
 
+    //scans vertical runs
     private Boolean scanVertical(String player, String[][] gameBoard) {
         if (gameBoard[0][0] == player && gameBoard[1][0] == player && gameBoard[2][0] == player) {
             return true;
@@ -391,6 +409,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //checks horizontal win options
     private boolean checkHorizontal(String[][] gameBoard) {
         boolean xWin;
         boolean oWin;
@@ -408,6 +427,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //scans for the horizontal runs
     private boolean scanHorizontal(String player, String[][] gameBoard) {
         if (gameBoard[0][0] == player && gameBoard[0][1] == player && gameBoard[0][2] == player) {
             return true;
@@ -420,6 +440,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    //gets the gameboard tags and puts them in a 2d array
     private String[][] getGameBoard() {
         String[][] gameBoard = new String[][]{
                 {findViewById(R.id.imageView_tile_a1).getTag().toString(),
