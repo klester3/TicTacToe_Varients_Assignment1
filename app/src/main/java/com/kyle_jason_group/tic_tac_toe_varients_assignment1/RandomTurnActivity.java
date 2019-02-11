@@ -121,7 +121,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onPause() {
-        if (!checkWin() && counter < 9) {
+        if (!checkWin() && counter < 9 && counter > 0) {
             saveGame();
         }
         super.onPause();
@@ -310,17 +310,7 @@ public class RandomTurnActivity extends AppCompatActivity implements View.OnClic
 
     private void clearPreferences() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove(TURN);
-        editor.putInt(COUNTER, 0);
-        editor.putInt(BOX_1, 42);
-        editor.putInt(BOX_2, 42);
-        editor.putInt(BOX_3, 42);
-        editor.putInt(BOX_4, 42);
-        editor.putInt(BOX_5, 42);
-        editor.putInt(BOX_6, 42);
-        editor.putInt(BOX_7, 42);
-        editor.putInt(BOX_8, 42);
-        editor.putInt(BOX_9, 42);
+        editor.clear();
         editor.apply();
     }
 
