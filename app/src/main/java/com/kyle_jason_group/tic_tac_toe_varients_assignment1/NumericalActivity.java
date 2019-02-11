@@ -271,26 +271,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
     //reset saved values to defaults
     private void clearPreferences() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(TURN, true);
-        editor.putInt(COUNTER, 0);
-        editor.putBoolean(ONE, false);
-        editor.putBoolean(TWO, false);
-        editor.putBoolean(THREE, false);
-        editor.putBoolean(FOUR, false);
-        editor.putBoolean(FIVE, false);
-        editor.putBoolean(SIX, false);
-        editor.putBoolean(SEVEN, false);
-        editor.putBoolean(EIGHT, false);
-        editor.putBoolean(NINE, false);
-        editor.putInt(BOX_1, 42);
-        editor.putInt(BOX_2, 42);
-        editor.putInt(BOX_3, 42);
-        editor.putInt(BOX_4, 42);
-        editor.putInt(BOX_5, 42);
-        editor.putInt(BOX_6, 42);
-        editor.putInt(BOX_7, 42);
-        editor.putInt(BOX_8, 42);
-        editor.putInt(BOX_9, 42);
+        editor.clear();
         editor.apply();
     }
 
@@ -358,6 +339,12 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             moveAlert.setCancelable(true);
             final AlertDialog moveDialog = moveAlert.create();
             moveDialog.show();
+            moveDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialogInterface) {
+                    clicked = false;
+                }
+            });
 
             ImageView oneImageView = moveDialog.findViewById(R.id.oneImageView);
             if (one) {
@@ -466,6 +453,12 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             moveAlert.setCancelable(true);
             final AlertDialog moveDialog = moveAlert.create();
             moveDialog.show();
+            moveDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialogInterface) {
+                    clicked = false;
+                }
+            });
 
             ImageView twoImageView = moveDialog.findViewById(R.id.twoImageView);
             if (two) {
