@@ -1,6 +1,10 @@
 package com.kyle_jason_group.tic_tac_toe_varients_assignment1;
 
-//Jason Casebier
+/*
+Authors: Kyle and Jason
+Date: 2/13/19
+Tested On: Pixel 2
+ */
 
 import android.content.Context;
 import android.content.Intent;
@@ -343,7 +347,7 @@ public class NumericalActivity extends AppCompatActivity implements View.OnClick
             final AlertDialog moveDialog = moveAlert.create();
             moveDialog.show();
 
-            final ImageView oneImageView = moveDialog.findViewById(R.id.oneImageView);
+            ImageView oneImageView = moveDialog.findViewById(R.id.oneImageView);
             if (one) {
                 oneImageView.setVisibility(View.GONE);
             } else {
